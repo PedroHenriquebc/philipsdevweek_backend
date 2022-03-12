@@ -19,7 +19,14 @@ public class RegiaoService {
 	}
 	
 	public Optional<Regiao> findById(Long id) {
-		Optional<Regiao> regiaoOptional = regiaoRepository.findById(id);
-		return regiaoOptional;
+		return regiaoRepository.findById(id);
+	}
+	
+	public Regiao save(Regiao regiao) {
+		return regiaoRepository.save(regiao);
+	}
+	
+	public void deleteById(Long id) {
+		regiaoRepository.deleteById(id);
 	}
 }
