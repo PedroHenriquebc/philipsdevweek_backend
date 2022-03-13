@@ -30,7 +30,7 @@ public class FaixaEtariaController {
 		return new ResponseEntity<>(regioes, HttpStatus.OK);
 	}
 	
-	@GetMapping("/faixaetaria/{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<FaixaEtaria> getFaixaEtariaById(@RequestBody Long id){
 		try {
 			Optional<FaixaEtaria> faixaEtariaOptional = faixaEtariaService.findById(id);
@@ -44,13 +44,13 @@ public class FaixaEtariaController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping("/faixaetaria/novo")
+	@PostMapping("/novo")
 		public ResponseEntity<FaixaEtaria> postFaixaEtaria(@RequestBody FaixaEtaria faixaEtaria) {
 		faixaEtariaService.save(faixaEtaria);
 		return new ResponseEntity<>(faixaEtaria, HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/faixaetaria/remover/{id}")
+	@DeleteMapping("/remover/{id}")
 	public ResponseEntity<?> deleteFaixaEtariaById(@PathVariable Long id){
 		Optional<FaixaEtaria> faixaEtariaOptional = faixaEtariaService.findById(id);
 		if(faixaEtariaOptional.isEmpty()) {

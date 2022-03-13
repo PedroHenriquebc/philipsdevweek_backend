@@ -33,7 +33,7 @@ public class RegiaoController {
 		return new ResponseEntity<>(regioes, HttpStatus.OK);
 	}
 	
-	@GetMapping("/regiao/{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<Regiao> getRegiaoById(@PathVariable Long id){
 		try {
 			Optional<Regiao> regiaoOptional = regiaoService.findById(id);
@@ -47,13 +47,13 @@ public class RegiaoController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping("/regiao/novo")
+	@PostMapping("/novo")
 	public ResponseEntity<Regiao> postRegiao(@RequestBody Regiao regiao) {
 		regiaoService.save(regiao);
 		return new ResponseEntity<>(regiao, HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/regiao/remover/{id}")
+	@DeleteMapping("/remover/{id}")
 	public ResponseEntity<?> deleteRegiaoById(@PathVariable Long id){
 		Optional<Regiao> regiaoOptional = regiaoService.findById(id);
 		if(regiaoOptional.isEmpty()) {

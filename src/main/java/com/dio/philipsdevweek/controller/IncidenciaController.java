@@ -32,7 +32,7 @@ public class IncidenciaController {
 		return new ResponseEntity<>(incidencias, HttpStatus.OK);
 	}
 
-	@GetMapping("/incidencia/{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<Incidencia> getIncidenciaById(@PathVariable Long id) {
 		try {
 			Optional<Incidencia> incidenciaOptional = incidenciaService.findById(id);
@@ -46,7 +46,7 @@ public class IncidenciaController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping("/incidencia/novo")
+	@PostMapping("/novo")
 	public ResponseEntity<Incidencia> postIncidencia(@RequestBody Incidencia incidencia) {
 		incidenciaService.save(incidencia);
 		return new ResponseEntity<>(incidencia, HttpStatus.CREATED);

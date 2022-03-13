@@ -5,47 +5,56 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Incidencia {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private Long id;
-	private Integer Regiao_id;
-	private Integer Mes;
-	private Long Faixa_id;
-	private Integer Qtd_exames;
-	public Incidencia(Integer regiao_id, Integer mes, Long faixa_id, Integer qtd_exames) {
-		Regiao_id = regiao_id;
-		Mes = mes;
-		Faixa_id = faixa_id;
-		Qtd_exames = qtd_exames;
+	
+	@ManyToOne
+	private Regiao regiaoDoBrasil;
+	
+	private Integer mes;
+	
+	@ManyToOne
+	private FaixaEtaria faixaEtaria;
+	
+	private Integer qtd_exames;
+	
+	public Incidencia(Regiao regiao, Integer mes, FaixaEtaria faixaEtaria, Integer qtd_exames) {
+		this.regiaoDoBrasil = regiao;
+		this.mes = mes;
+		this.faixaEtaria = faixaEtaria;
+		this.qtd_exames = qtd_exames;
 	}
 	public Incidencia() {}
-	public Integer getRegiao_id() {
-		return Regiao_id;
+	
+	public Regiao getRegiao() {
+		return regiaoDoBrasil;
 	}
-	public void setRegiao_id(Integer regiao_id) {
-		Regiao_id = regiao_id;
+	public void setRegiao(Regiao regiao) {
+		this.regiaoDoBrasil = regiao;
 	}
 	public Integer getMes() {
-		return Mes;
+		return mes;
 	}
 	public void setMes(Integer mes) {
-		Mes = mes;
+		this.mes = mes;
 	}
-	public Long getFaixa_id() {
-		return Faixa_id;
+	public FaixaEtaria getFaixaEtaria() {
+		return faixaEtaria;
 	}
-	public void setFaixa_id(Long faixa_id) {
-		Faixa_id = faixa_id;
+	public void setFaixa(FaixaEtaria faixaEtaria) {
+		this.faixaEtaria = faixaEtaria;
 	}
 	public Integer getQtd_exames() {
-		return Qtd_exames;
+		return qtd_exames;
 	}
 	public void setQtd_exames(Integer qtd_exames) {
-		Qtd_exames = qtd_exames;
+		this.qtd_exames = qtd_exames;
 	}
 	public Long getId() {
 		return id;
