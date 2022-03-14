@@ -19,5 +19,5 @@ INSERT INTO faixa_etaria (faixa_i,faixa_n,descricao) VALUES ('60','64','Entre 60
 INSERT INTO faixa_etaria (faixa_i,faixa_n,descricao) VALUES ('65','69','Entre 65 e 69 anos');
 INSERT INTO faixa_etaria (faixa_i,faixa_n,descricao) VALUES ('70','150','Acima de 70');
 
-INSERT INTO incidencia (regiao_do_brasil_id, mes, faixa_etaria_id, qtd_exames) VALUES (1,5,2,1);
-INSERT INTO incidencia (regiao_do_brasil_id, mes, faixa_etaria_id, qtd_exames) VALUES (1,5,4,2);
+INSERT INTO incidencia (regiao_id, mes, faixa_etaria_id, qtd_exames) VALUES (1,5,2,1);
+INSERT INTO incidencia (regiao_id, mes, faixa_etaria_id, qtd_exames) VALUES (1,5,4,2);

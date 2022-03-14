@@ -18,7 +18,7 @@ import com.dio.philipsdevweek.entity.Regiao;
 import com.dio.philipsdevweek.service.RegiaoService;
 
 @RestController
-@RequestMapping("/regiao")
+@RequestMapping("/regioes")
 public class RegiaoController {
 
 	@Autowired
